@@ -1,58 +1,107 @@
 package com.onya.excel;
 
 public class Unit {
-	String recipient;
-	String AccModel;
-	String AccName;
-	String code_OKOF;
+	private String Recipient;
+	private String AccModel;
+	private String AccName;
+	private String CodeOKOF;
 	
-	String num_amort_group;
-	String num_pasport;
-	String num_fact;
-	String num_inventory;
-	String num_inventory_code;
+	private String AmortGroupNum;
+	private String PassportNum;
+	private String FactoryNum;
+	private String InventoryNum;
+	private String InventoryCodeNum;
 	
-	String manufacturer_fact;
-	String manufacturer_town;
-	String manufacturer_country;
+	private String ManufacturerName;
+	private String ManufacturerTownLocation;
+	private String ManufacturerCountryLocation;
 	
-	String vendor_fact;
-	String vendor_town;
-	String vendor_country;
+	private String VendorFactoryName;
+	private String VendorTownLocation;
+	private String VendorCountryLocation;
 	
-	String doc_name;
-	String doc_num;
-	String doc_date;
+	private int DocName;
+	private String DocNum;
+	private String DocDate;
 	
-	String dlina;
-	String shirina;
-	String visota;
-	String ves;
-	String moshnost;
+	private String Length;
+	private String Width;
+	private String Height;
+	private String Weight;
+	private String Power;
 	
-	Unit(String recipient, String AccModel, String AccName, String code_OKOF, 
-	String num_amort_group, String num_pasport, String num_fact, String num_inventory, String num_inventory_code,
-	String manufacturer_fact,
-	String manufacturer_town,String manufacturer_country,String vendor_fact,
-	String vendor_town,String vendor_country,String doc_name,String doc_num,
-	String doc_date){
-		this.recipient = recipient;
+	Unit(String Recipient, String AccModel, String AccName, String CodeOKOF, 
+	String AmortGroupNum, String PassportNum, String FactoryNum, String InventoryNum,
+	String InventoryCodeNum, String ManufacturerName,String ManufacturerTownLocation,
+	String ManufacturerCountryLocation,String VendorFactoryName,String VendorTownLocation,
+	String VendorCountryLocation,String DocNum,String DocDate){
+		this.Recipient = Recipient;
 		this.AccModel = AccModel;
 		this.AccName = AccName;
-		this.code_OKOF = code_OKOF;
-		this.num_amort_group = num_amort_group;
-		this.num_pasport = num_pasport;
-		this.num_fact = num_fact;
-		this.num_inventory = num_inventory;
-		this.num_inventory_code = num_inventory_code;
-		this.manufacturer_fact = manufacturer_fact;
-		this.manufacturer_town = manufacturer_town;
-		this.manufacturer_country = manufacturer_country;
-		this.vendor_fact = vendor_fact;
-		this.vendor_town = vendor_town;
-		this.vendor_country = vendor_country;
-		this.doc_name = doc_name;
-		this.doc_num = doc_num;
-		this.doc_date = doc_date;
+		this.CodeOKOF = CodeOKOF;
+		this.AmortGroupNum = AmortGroupNum;
+		this.PassportNum = PassportNum;
+		this.FactoryNum = FactoryNum;
+		this.InventoryNum = InventoryNum;
+		this.InventoryCodeNum = InventoryCodeNum;
+		this.ManufacturerName = ManufacturerName;
+		this.ManufacturerTownLocation = ManufacturerTownLocation;
+		this.ManufacturerCountryLocation = ManufacturerCountryLocation;
+		this.VendorFactoryName = VendorFactoryName;
+		this.VendorTownLocation = VendorTownLocation;
+		this.VendorCountryLocation = VendorCountryLocation;
+		this.DocNum = DocNum;
+		this.DocDate = DocDate;
+	}
+	public String getRecipientValue() {
+		return Recipient;
+	}
+	public String getAccModelValue() {
+		return AccModel;
+	}
+	public String getAccNameValue() {
+		return AccName;
+	}
+	public String getCodeOKOFValue() {
+		return CodeOKOF;
+	}
+	public String getAmortGroupNumValue() {
+		return AmortGroupNum;
+	}
+	public String getPassportNumValue() {
+		return PassportNum;
+	}
+	public String getFactoryNumValue() {
+		return FactoryNum;
+	}
+	public String getInventoryNumValue() {
+		return InventoryNum;
+	}
+	public String getInventoryCodeNumValue() {
+		return InventoryCodeNum;
+	}
+	public String getManufacturerNameValue() {
+		return ManufacturerName;
+	}
+	public String getManufacturerTownLocationValue() {
+		return ManufacturerTownLocation;
+	}
+	public String getManufacturerCountryLocationValue() {
+		return ManufacturerCountryLocation;
+	}
+	public String getVendorFactoryNameValue() {
+		return VendorFactoryName;
+	}
+	public String getVendorTownLocationValue() {
+		return VendorTownLocation;
+	}
+	public String getVendorCountryLocationValue() {
+		return VendorCountryLocation;
+	}
+	public String getDocNumValue() {
+		return DocNum;
+	}
+	public String getDocDateValue() {
+		return DocDate;
 	}
 }

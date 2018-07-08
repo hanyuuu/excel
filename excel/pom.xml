@@ -9,13 +9,29 @@
 
   <name>excel</name>
   <url>http://maven.apache.org</url>
+<build>
+  <plugins>
+    <plugin>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <configuration>
+        <archive>
+          <manifest>
+            <mainClass>fully.qualified.MainClass</mainClass>
+          </manifest>
+        </archive>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

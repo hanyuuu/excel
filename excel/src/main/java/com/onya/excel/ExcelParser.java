@@ -10,10 +10,10 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
-public class SupahParser {
+public class ExcelParser {
 	private InputStream inputStream = null;
 	private HSSFWorkbook workBook = null;
-	SupahParser(String fileName){
+	ExcelParser(String fileName){
 		try {
             inputStream = new FileInputStream(fileName);
             workBook = new HSSFWorkbook(inputStream);
@@ -30,7 +30,6 @@ public class SupahParser {
 	            cell = row.createCell(CellNum-1);
 	        cell.setCellType(Cell.CELL_TYPE_STRING);
 	        cell.setCellValue(text);
-	        
 	    }
 	
 	public void save() throws IOException{

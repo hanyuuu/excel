@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,7 +16,7 @@ public class FirstFrame extends Components{
 	private JPanel[] SmallPanels= new JPanel[6];
 	
 	private JTextField[] TextFields= new JTextField[23];
-	
+	private String[] ComboBoxItems = {"ОС-1"};
 	private JPanel mainPanel;
 	private JFrame mainFrame;
 	private JButton saveButton;
@@ -28,15 +29,16 @@ public class FirstFrame extends Components{
 			10,30,100,50,10,50,100,50,10,10,100,50,10,30,100,50,10,50,100,50,10,10,100,50,10,30,100,50,10,50,100,50,10,10,100,50,10,50,100,50,10,90,100,50,10,130,100,50,
 			10,170,100,50,220,10,100,50,220,50,100,50,220,90,100,50,220,130,100,50,220,170,100,50};
 	private String[] SmallPanelNames = {"Основное","Номер:","Изготовитель:","Сдатчик:","Документ о вводе в эксплуатацию:","Габариты"};
-	private int[] SmallPanelBounds = {0,0,300,150,0,150,300,180,300,0,300,100,300,120,300,100,300,230,300,100,600,0,300,220};
-	
+	private int[] SmallPanelBounds = {0,0,300,150, 0,150,300,180, 300,0,300,100, 300,120,300,100, 300,230,300,100, 600,0,300,220};
+	private JComboBox comboBox;
 	private int[] TextFieldBounds = {110,20,180,20, 110,50,180,20, 110,80,180,20, 110,110,180,20, 110,20,180,20, 110,50,180,20, 110,80,180,20, 110,110,180,20,
 			110,140,180,20, 110,25,150,20, 110,45,150,20, 110,65,150,20, 110,25,150,20, 110,45,150,20, 110,65,150,20, 110,25,150,20, 110,45,150,20, 110,65,150,20,
 			110,25,100,20, 110,65,100,20, 110,105,100,20, 110,145,100,20, 110,185,100,20};
-	
 	FirstFrame(){
 		mainPanel = CreateMainPanel();
 		mainFrame = CreateMainFrame("Ввод данных", mainPanel,900,370);
+		comboBox = new JComboBox(ComboBoxItems);
+		comboBox.setBounds(410,255,150,20);
 		for (int i = 0;i<6;i++) {
 			SmallPanels[i] = CreateSmallPanel(SmallPanelNames[i], SmallPanelBounds[i*4],SmallPanelBounds[i*4+1],SmallPanelBounds[i*4+2],SmallPanelBounds[i*4+3]);
 		}
@@ -71,9 +73,10 @@ public class FirstFrame extends Components{
 		
 		for (int i = 15;i<18;i++) {
 			SmallPanels[4].add(Labels[i]);
+		}
+		for (int i = 16;i<18;i++) {
 			SmallPanels[4].add(TextFields[i]);
 		}
-		
 		for (int i = 18;i<23;i++) {
 			SmallPanels[5].add(TextFields[i]);
 		}
@@ -81,26 +84,32 @@ public class FirstFrame extends Components{
 		for (int i = 18;i<28;i++) {
 			SmallPanels[5].add(Labels[i]);
 		}
-		
+		mainPanel.add(comboBox);
 		for (int i = 0;i<6;i++) {
 			mainPanel.add(SmallPanels[i]);
 		}
+		DigitFilter j = new DigitFilter();
+		for (int i = 17;i<23;i++) {
+			j.PTextFilter(TextFields[i], 10);
+		}
 		mainFrame.setVisible(true);
-		saveButton = CreateButton("Сгенерировать",615,235,100,30);
-		/*saveButton.addActionListener(new ActionListener() {
+		saveButton = CreateButton("Сгенерировать",615,235,150,30);
+		mainPanel.add(saveButton);
+		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Unit a = new Unit(field1.getText(),field2.getText(),field3.getText(),field4.getText(),
-				field21.getText(),field22.getText(),field23.getText(),field24.getText(),field25.getText(),
-				midONEField1.getText(),midONEField2.getText(),midONEField3.getText(),
-				midTWOField1.getText(),midTWOField2.getText(),midTWOField3.getText(),
-				midTHREEField1.getText(),midTHREEField2.getText(),midTHREEField3.getText());
+				Unit a = new Unit(TextFields[0].getText(),TextFields[1].getText(),TextFields[2].getText(),TextFields[3].getText(),
+				TextFields[4].getText(),TextFields[5].getText(),TextFields[6].getText(),TextFields[7].getText(),TextFields[8].getText(),
+				TextFields[9].getText(),TextFields[10].getText(),TextFields[11].getText(),
+				TextFields[12].getText(),TextFields[13].getText(),TextFields[14].getText(),TextFields[16].getText(),TextFields[17].getText());
 				try {
-					Module g = new Module(a,1);
+					if (comboBox.getSelectedItem().toString() == "ОС-1") {
+						Module g = new Module(a,1);
+					}
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
 			}
 			
-		});*/
+		});
 	}
 }
